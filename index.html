@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Thomas Clinton Crutchfield Jr., AWS Data Center Operations Technician and cybersecurity professional." />
+  <title>Thomas Crutchfield Jr. | Cybersecurity & Data Center Operations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a0f1a;
+      --surface: #111827;
+      --surface-2: #1a2438;
+      --border: #1e2d45;
+      --accent: #00c2ff;
+      --accent-dim: rgba(0, 194, 255, 0.12);
+      --accent-glow: rgba(0, 194, 255, 0.25);
+      --text: #e8edf5;
+      --text-muted: #7a91b0;
+      --text-dim: #4a6080;
+      --green: #00e5a0;
+      --green-dim: rgba(0, 229, 160, 0.12);
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-mono: 'Space Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-display);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(10,15,26,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--bg) !important;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-weight: 700 !important;
+    }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 48px 48px;
+      opacity: 0.35;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 30%, transparent 100%);
+    }
+
+    .hero-glow {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(0,194,255,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 span { color: var(--accent); }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s;
+      display: inline-block;
+    }
+
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1.5rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .stat-num {
+      font-family: var(--font-mono);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    /* ── SECTIONS ── */
+    section {
+      padding: 6rem 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 3rem;
+    }
+
+    /* ── JOURNEY TIMELINE ── */
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 130px 1px 1fr;
+      gap: 0 1.5rem;
+      position: relative;
+    }
+
+    .timeline-date {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      padding-top: 0.1rem;
+      text-align: right;
+    }
+
+    .timeline-line {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 1px var(--accent);
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+
+    .timeline-dot.dim { background: var(--border); box-shadow: 0 0 0 1px var(--border); }
+
+    .timeline-connector {
+      flex: 1;
+      width: 1px;
+      background: var(--border);
+      margin: 4px 0;
+    }
+
+    .timeline-item:last-child .timeline-connector { display: none; }
+
+    .timeline-content {
+      padding-bottom: 2.5rem;
+    }
+
+    .timeline-role {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 0.15rem;
+    }
+
+    .timeline-org {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .timeline-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── EXPERIENCE CARDS ── */
+    .exp-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .exp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.75rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .exp-card:hover {
+      border-color: var(--accent);
+      background: var(--surface-2);
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .exp-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .exp-company {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .exp-date {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      white-space: nowrap;
+      background: var(--surface-2);
+      padding: 0.3rem 0.7rem;
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    .exp-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .exp-bullets li {
+      font-size: 0.87rem;
+      color: var(--text-muted);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.55;
+    }
+
+    .exp-bullets li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      background: var(--accent-dim);
+      color: var(--accent);
+      font-size: 0.7rem;
+      font-family: var(--font-mono);
+      padding: 0.2rem 0.55rem;
+      border-radius: 3px;
+      letter-spacing: 0.03em;
+    }
+
+    .tag.green {
+      background: var(--green-dim);
+      color: var(--green);
+    }
+
+    /* ── IMPACT GRID ── */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .impact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      transition: border-color 0.2s;
+    }
+
+    .impact-card:hover { border-color: var(--accent); }
+
+    .impact-num {
+      font-family: var(--font-mono);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .impact-label {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .impact-desc {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* ── SKILLS ── */
+    .skill-groups {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+
+    .skill-group-title {
+      font-size: 0.75rem;
+      font-family: var(--font-mono);
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    /* ── PROJECTS ── */
+    .project-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.2s, transform 0.2s;
+      display: block;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .project-lang {
+      font-size: 0.72rem;
+      font-family: var(--font-mono);
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+
+    .project-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      color: var(--text);
+    }
+
+    .project-desc {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .edu-degree {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .edu-school {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+
+    .edu-details {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .edu-gpa {
+      font-family: var(--font-mono);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--green);
+      text-align: right;
+    }
+
+    .edu-gpa-label {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      text-align: right;
+      font-family: var(--font-mono);
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      text-align: center;
+    }
+
+    .contact-sub {
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── SCROLL TICKER ── */
+    .ticker-wrap {
+      width: 100%;
+      overflow: hidden;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 0.7rem 0;
+    }
+
+    .ticker {
+      display: flex;
+      width: max-content;
+      animation: ticker 30s linear infinite;
+    }
+
+    .ticker-item {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      padding: 0 2.5rem;
+      white-space: nowrap;
+    }
+
+    .ticker-item span { color: var(--accent); margin-right: 0.5rem; }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      font-family: var(--font-mono);
+    }
+
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 1rem; }
+      .nav-links { display: none; }
+      .timeline-item { grid-template-columns: 90px 1px 1fr; }
+      .exp-date { display: none; }
+    }
+
+    /* ── ANIMATIONS ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">TC //</a>
+  <ul class="nav-links">
+    <li><a href="#journey">Journey</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" style="max-width:100%; padding-left: max(2rem, calc((100% - 960px) / 2 + 2rem)); padding-right: max(2rem, calc((100% - 960px) / 2 + 2rem));">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">AWS Data Center Operations · Cybersecurity</div>
+    <h1>Thomas<br><span>Crutchfield Jr.</span></h1>
+    <p class="hero-sub">
+      Securing and sustaining the infrastructure that the world runs on.
+      From server rack installs at AWS to pen testing government web apps,
+      I operate at the intersection of hardware reliability and cyber defense.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Get in Touch</a>
+      <a href="#experience" class="btn-secondary">View Experience</a>
+      <a href="https://www.linkedin.com/in/thomas-crutchfield-780957192/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">2,400+</span><span class="stat-label">Resolved Tickets at AWS and Across Azure Environments</span></div>
+      <div class="stat"><span class="stat-num">3,500+</span><span class="stat-label">Managed Windows and Linux Servers, Laptops, Desktops, Mobiles Devices, and Printers</span></div>
+      <div class="stat"><span class="stat-num">3,000+</span><span class="stat-label">Supported End Users and Customers</span></div>
+      <div class="stat"><span class="stat-num">$50,000+</span><span class="stat-label">Saved Through Device Repair and Lifecycle Recovery</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="ticker-item"><span>▸</span> AWS Data Center Operations</span>
+    <span class="ticker-item"><span>▸</span> Penetration Testing</span>
+    <span class="ticker-item"><span>▸</span> Network Security</span>
+    <span class="ticker-item"><span>▸</span> Python · Java · C++</span>
+    <span class="ticker-item"><span>▸</span> Metasploit · Burp Suite · Nmap</span>
+    <span class="ticker-item"><span>▸</span> Linux · Docker · VMware</span>
+    <span class="ticker-item"><span>▸</span> Active Directory · InTune · SCCM</span>
+    <span class="ticker-item"><span>▸</span> Cisco Networking</span>
+    <span class="ticker-item"><span>▸</span> M.S. Cybersecurity — In Progress</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item"><span>▸</span> AWS Data Center Operations</span>
+    <span class="ticker-item"><span>▸</span> Penetration Testing</span>
+    <span class="ticker-item"><span>▸</span> Network Security</span>
+    <span class="ticker-item"><span>▸</span> Python · Java · C++</span>
+    <span class="ticker-item"><span>▸</span> Metasploit · Burp Suite · Nmap</span>
+    <span class="ticker-item"><span>▸</span> Linux · Docker · VMware</span>
+    <span class="ticker-item"><span>▸</span> Active Directory · InTune · SCCM</span>
+    <span class="ticker-item"><span>▸</span> Cisco Networking</span>
+    <span class="ticker-item"><span>▸</span> M.S. Cybersecurity — In Progress</span>
+  </div>
+</div>
+
+<!-- JOURNEY -->
+<section id="journey" class="fade-in">
+  <div class="section-eyebrow">Career Path</div>
+  <h2>My Journey</h2>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="timeline-date">May 2025 — Present</div>
+      <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-connector"></div></div>
+      <div class="timeline-content">
+        <div class="timeline-role">Data Center Operations Technician L3</div>
+        <div class="timeline-org">Amazon Web Services (AWS) · South Bend, IN</div>
+        <div class="timeline-desc">Executed comprehensive data center operations as part of Project Rainier, an $11 billion infrastructure initiative, managed server racks installations, complex hardware break-fixes, media handling/destruction, and network troubleshooting within a 24/7 environment to ensure high reliability and meet strict service level agreements.</div>
+        <div class="timeline-desc">Served as the primary point of contact for internal engineers, developers, and external vendors during critical operational incidents, driving root cause analysis and coordinating rapid resolutions to minimize service impact.</div>
+        <div class="timeline-desc">Led process improvement initiatives by analyzing operational issues to update technical documentation, while actively training and onboarding new team members to ensure adherence to safety and operational standards.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Jan 2025 — Apr 2025</div>
+      <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-connector"></div></div>
+      <div class="timeline-content">
+        <div class="timeline-role">Data Analyst, ECU Office of Innovation and Engagement</div>
+        <div class="timeline-org">East Carolina University</div>
+        <div class="timeline-desc">Collaborated with a team to collect, analyze, and interpret data, directly supporting key university research, engagement, and innovation initiatives.</div>
+        <div class="timeline-desc">Developed data visualizations and reports to effectively communicate findings and insights to stakeholders.</div>
+        <div class="timeline-desc">Maintained meticulous documentation of data and project progress, ensuring a high level of accuracy and organization.</div>
+      </div>
+    </div> 
+
+    <div class="timeline-item">
+      <div class="timeline-date">Aug 2024 — Apr 2025</div>
+      <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-connector"></div></div>
+      <div class="timeline-content">
+        <div class="timeline-role">Lab Monitor, College of Engineering</div>
+        <div class="timeline-org">East Carolina University</div>
+        <div class="timeline-desc">Managed and maintained a Cisco networking lab, ensuring all switches, routers, and equipment were fully operational for student use.</div>
+        <div class="timeline-desc">Provided direct technical support to students, guiding them through complex network configurations, troubleshooting issues, and reinforcing key concepts like VLANs and routing.</div>
+        <div class="timeline-desc">Assisted instructors with lab preparation, including setting up network simulations and organizing materials to create an effective and supportive learning environment.</div>
+      </div>
+    </div>    
+
+    <div class="timeline-item">
+      <div class="timeline-date">Dec 2023 — Dec 2024</div>
+      <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-connector"></div></div>
+      <div class="timeline-content">
+        <div class="timeline-role">IT Support Specialist Intern</div>
+        <div class="timeline-org">Greenville Utilities Commission</div>
+        <div class="timeline-desc">Investigated and resolved hardware problems on computer systems. Performed hardware repairs, maintenance, and technical support for PCs and peripherals. Analyzed and resolved issues with computer applications and systems across departments.</div>
+        <div class="timeline-desc">Solved over 680 support cases over a 1 year period. Managed IT Help Desk calls, created tickets, and assigned them to appropriate staff. Provided technical support for software, operating systems, and hardware.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Mar 2024 — Nov 2024</div>
+      <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-connector"></div></div>
+      <div class="timeline-content">
+        <div class="timeline-role">Undergraduate Research Assistant</div>
+        <div class="timeline-org">East Carolina University</div>
+        <div class="timeline-desc">Utilized vulnerability scans using Nmap, Netcat, and OpenVAS. Enumerated a government web application and SQL database through exploitations with SQL Map, Metasploit, Burp Suite, XSpear, and XSSer.</div>
+        <div class="timeline-desc">Implemented and maintained cybersecurity best practices for a government-approved hosting systems. Ensured the best encryption and hashing methods were being used.</div>
+        <div class="timeline-desc">Utilized Selenium automation testing with Java to create regression tests.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Jun 2023 — Dec 2023</div>
+      <div class="timeline-line"><div class="timeline-dot"></div><div class="timeline-connector"></div></div>
+      <div class="timeline-content">
+        <div class="timeline-role">IT Infrastructure Intern</div>
+        <div class="timeline-org">Greenville Utilities Commission</div>
+        <div class="timeline-desc">Network and system monitoring solutions using SolarWinds IPAM and Node Manager/NPM. Troubleshoot issues on the network with the infrastructure team or individually. Managed and secured network assets using Sentinel One EDR, CyberArk, and Artic Wolf.</div>
+        <div class="timeline-desc">Leverage BOSS Desk ticket to manage the web application to solve problems and add or remove devices across the network.</div>
+        <div class="timeline-desc">Supported over 500 employees and managed over 1,000 devices ranging from Cisco switches, Fortinet firewall, Rubrik backup drives, NetApp storage drives, Cisco server blades, Eaton UPS battery backups, Eaton ATS devices, APC UPS battery backups, iPads, Windows workstations, managed on site and virtual Windows servers through VMWare, and monitored SCADA network devices.</div>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="timeline-date">Oct 2021 — May 2025</div>
+      <div class="timeline-line"><div class="timeline-dot dim"></div><div class="timeline-connector"></div></div>
+      <div class="timeline-content">
+        <div class="timeline-role">Supervisor / Bus Operator</div>
+        <div class="timeline-org">ECU Transit</div>
+        <div class="timeline-desc">Managed the daily operations of a 36-bus fleet across 28 fixed routes, ensuring timely service and consistent schedule adherence.</div>
+        <div class="timeline-desc">Supervised and directed all phases of fleet operations, including monitoring bus schedules, responding to emergencies, and coordinating maintenance to minimize downtime.</div>
+        <div class="timeline-desc">Maintained detailed documentation of all operational issues, including late arrivals, mechanical problems, and accidents, to support ongoing performance analysis and compliance.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="fade-in">
+  <div class="section-eyebrow">Professional Experience</div>
+  <h2>Where I've Worked</h2>
+  <div class="exp-cards">
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Data Center Operations Technician L3</div>
+          <div class="exp-company">Amazon Web Services (AWS) — South Bend, IN</div>
+        </div>
+        <div class="exp-date">May 2025 – Present</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Performing server rack installations and hardware break-fix on critical AWS infrastructure.</li>
+        <li>Troubleshooting network issues and escalating operational incidents affecting service availability.</li>
+        <li>Primary contact for internal/external stakeholders including engineers, vendors, and contractors.</li>
+        <li>Contributing to documentation, process improvement, and onboarding of new team members.</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="tag">Rack & Stack</span>
+        <span class="tag">Hardware Break-Fix</span>
+        <span class="tag">Incident Response</span>
+        <span class="tag">Change Management</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Undergraduate Research Assistant</div>
+          <div class="exp-company">East Carolina University</div>
+        </div>
+        <div class="exp-date">Mar 2024 – Nov 2024</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Conducted vulnerability scans using Nmap, Netcat, and OpenVAS on government-grade systems.</li>
+        <li>Enumerated web apps and SQL databases via SQL Map, Metasploit, Burp Suite, XSpear, and XSSer.</li>
+        <li>Implemented encryption and hashing best practices for government-approved hosting environments.</li>
+        <li>Developed regression tests using Selenium automation with Java.</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="tag green">Penetration Testing</span>
+        <span class="tag green">Metasploit</span>
+        <span class="tag green">Burp Suite</span>
+        <span class="tag green">OpenVAS</span>
+        <span class="tag green">Selenium</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">IT Support Specialist Intern</div>
+          <div class="exp-company">Greenville Utilities Commission</div>
+        </div>
+        <div class="exp-date">Dec 2023 – Dec 2024</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Resolved 680+ support cases across hardware repairs, OS issues, and application troubleshooting.</li>
+        <li>Managed the IT help desk — created, assigned, and tracked tickets for departmental support.</li>
+        <li>Assisted in annual PC deployment cycles: evaluation, procurement, installation, and configuration.</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="tag">Help Desk</span>
+        <span class="tag">Hardware Repair</span>
+        <span class="tag">PC Deployment</span>
+        <span class="tag">Ticket Management</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">IT Infrastructure Intern</div>
+          <div class="exp-company">Greenville Utilities Commission</div>
+        </div>
+        <div class="exp-date">Jun 2023 – Dec 2023</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Monitored network and systems via SolarWinds IPAM, NPM, and UDT across 1,000+ devices.</li>
+        <li>Managed endpoint security using SentinelOne EDR, CyberArk, and Arctic Wolf.</li>
+        <li>Administered Cisco switches, Fortinet firewalls, Rubrik/NetApp storage, VMware servers, and SCADA devices.</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="tag green">SolarWinds</span>
+        <span class="tag green">SentinelOne</span>
+        <span class="tag green">CyberArk</span>
+        <span class="tag green">VMware</span>
+        <span class="tag green">Fortinet</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section id="impact" class="fade-in">
+  <div class="section-eyebrow">Impact</div>
+  <h2>By the Numbers</h2>
+  <div class="impact-grid">
+    <div class="impact-card">
+      <div class="impact-num">680+</div>
+      <div class="impact-label">Support Cases Resolved</div>
+      <div class="impact-desc">Over 12 months at Greenville Utilities Commission's IT help desk.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">1,000+</div>
+      <div class="impact-label">Devices Managed</div>
+      <div class="impact-desc">Cisco switches, firewalls, servers, UPS backups, and workstations for 500+ employees.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">28</div>
+      <div class="impact-label">Transit Routes Managed</div>
+      <div class="impact-desc">Supervised a 36-bus fleet including disability access and Demand Response services.</div>
+    </div>
+    <div class="impact-card">
+      <div class="impact-num">4.0</div>
+      <div class="impact-label">Graduate GPA</div>
+      <div class="impact-desc">M.S. in Information and Cybersecurity Technology, to be conferred May 2027.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="fade-in">
+  <div class="section-eyebrow">Technical Expertise</div>
+  <h2>Skills & Toolset</h2>
+  <div class="skill-groups">
+
+    <div class="skill-group">
+      <div class="skill-group-title">Data Center & Infrastructure</div>
+      <div class="skill-tags">
+        <span class="tag">Rack & Stack</span>
+        <span class="tag">Hardware Break-Fix</span>
+        <span class="tag">VMware</span>
+        <span class="tag">Cisco Networking</span>
+        <span class="tag">Cloud Computing</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Google Cloud</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Cybersecurity</div>
+      <div class="skill-tags">
+        <span class="tag green">Penetration Testing</span>
+        <span class="tag green">Intrusion Detection</span>
+        <span class="tag green">Metasploit</span>
+        <span class="tag green">Burp Suite</span>
+        <span class="tag green">Nmap</span>
+        <span class="tag green">Wireshark</span>
+        <span class="tag green">Snort</span>
+        <span class="tag green">OpenVAS</span>
+        <span class="tag green">Recon-NG</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Systems Administration</div>
+      <div class="skill-tags">
+        <span class="tag">Linux</span>
+        <span class="tag">Active Directory</span>
+        <span class="tag">Microsoft InTune</span>
+        <span class="tag">SCCM</span>
+        <span class="tag">Microsoft 365</span>
+        <span class="tag">SolarWinds</span>
+        <span class="tag">SentinelOne</span>
+        <span class="tag">CyberArk</span>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <div class="skill-group-title">Programming & Dev</div>
+      <div class="skill-tags">
+        <span class="tag">Python</span>
+        <span class="tag">Java</span>
+        <span class="tag">C++</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">SQL</span>
+        <span class="tag">HTML/CSS</span>
+        <span class="tag">YAML</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Git</span>
+        <span class="tag">Selenium</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="fade-in">
+  <div class="section-eyebrow">GitHub Projects</div>
+  <h2>Things I've Built</h2>
+  <div class="project-cards">
+
+    <a href="https://github.com/Thomas2074/Network-Analyzer" target="_blank" class="project-card">
+      <div class="project-lang">Python</div>
+      <div class="project-name">Network Analyzer</div>
+      <div class="project-desc">A Python-built network analysis tool for monitoring and inspecting network traffic.</div>
+    </a>
+
+    <a href="https://github.com/Thomas2074/Password-Generator" target="_blank" class="project-card">
+      <div class="project-lang">Python</div>
+      <div class="project-name">Password Generator</div>
+      <div class="project-desc">Generates strong, random passwords with customizable length using letters, numbers, and symbols.</div>
+    </a>
+
+    <a href="https://github.com/Thomas2074/Authenticator-Program" target="_blank" class="project-card">
+      <div class="project-lang">Python</div>
+      <div class="project-name">Authenticator Program</div>
+      <div class="project-desc">A lightweight authentication application demonstrating secure credential management concepts.</div>
+    </a>
+
+    <a href="https://github.com/Thomas2074/Calculator-Website" target="_blank" class="project-card">
+      <div class="project-lang">JavaScript · HTML · CSS</div>
+      <div class="project-name">Calculator Website</div>
+      <div class="project-desc">Responsive arithmetic calculator with robust error-handling and cross-device compatibility.</div>
+    </a>
+
+    <a href="https://github.com/Thomas2074/Blog-Site" target="_blank" class="project-card">
+      <div class="project-lang">CSS · HTML · JavaScript</div>
+      <div class="project-name">Blog Site</div>
+      <div class="project-desc">A clean, functional blog webpage built from scratch with custom styling and layout.</div>
+    </a>
+
+    <div class="project-card" style="border-style: dashed; cursor: default;">
+      <div class="project-lang">Capstone · 2024–2025</div>
+      <div class="project-name">Project Building Hope</div>
+      <div class="project-desc">Deployed network traffic analyzer, Cisco WAP for Wi-Fi dead zones, and QoS optimization for a non-profit's infrastructure.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="fade-in">
+  <div class="section-eyebrow">Academic Background</div>
+  <h2>Education</h2>
+  <div class="edu-cards">
+
+    <div class="edu-card">
+      <div>
+        <div class="edu-degree">Master of Science — Information & Cybersecurity Technology</div>
+        <div class="edu-school">East Carolina University · Greenville, NC</div>
+        <div class="edu-details">Concentration in Cybersecurity &nbsp;·&nbsp; To be conferred May 2027</div>
+      </div>
+      <div>
+        <div class="edu-gpa">4.0</div>
+        <div class="edu-gpa-label">GPA</div>
+      </div>
+    </div>
+
+    <div class="edu-card">
+      <div>
+        <div class="edu-degree">Bachelor of Science — Information & Cybersecurity Technology</div>
+        <div class="edu-school">East Carolina University · Greenville, NC</div>
+        <div class="edu-details">
+          Concentration in Cybersecurity &nbsp;·&nbsp; Graduated May 2025<br>
+          Magna Cum Laude &nbsp;·&nbsp; Epsilon Pi Tau &nbsp;·&nbsp; ISSA &nbsp;·&nbsp; ACM &nbsp;·&nbsp; Dean's List
+        </div>
+      </div>
+      <div>
+        <div class="edu-gpa">3.75</div>
+        <div class="edu-gpa-label">GPA</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fade-in" style="text-align:center;">
+  <div class="section-eyebrow">Let's Connect</div>
+  <h2>Open to opportunities where<br>security and reliability matter.</h2>
+  <p class="contact-sub">
+    I'm looking for roles where I can protect critical infrastructure, grow my offensive security skills, and build with teams who care about getting it right.
+  </p>
+  <div class="contact-links">
+    <a href="mailto:deltaclint@gmail.com" class="btn-primary">Email Me</a>
+    <a href="https://www.linkedin.com/in/thomas-crutchfield-780957192/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+    <a href="https://github.com/Thomas2074" target="_blank" class="btn-secondary">GitHub ↗</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Thomas Clinton Crutchfield Jr. &nbsp;·&nbsp; Built with intention. &nbsp;·&nbsp; <a href="mailto:deltaclint@gmail.com">deltaclint@gmail.com</a></p>
+</footer>
+
+<script>
+  // Scroll fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
