@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: replace with your live domain once deployed
+Sitemap: https://thomascrutchfield.com/sitemap.xml

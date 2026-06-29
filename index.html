@@ -2,10 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio of Thomas Clinton Crutchfield Jr., AWS Data Center Operations Technician and cybersecurity professional." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+  <!-- Primary SEO -->
   <title>Thomas Crutchfield Jr. | Cybersecurity & Data Center Operations</title>
+  <meta name="description" content="Thomas Clinton Crutchfield Jr. — AWS Data Center Operations Technician and cybersecurity professional specializing in penetration testing, network security, and infrastructure reliability." />
+  <meta name="author" content="Thomas Clinton Crutchfield Jr." />
+  <meta name="keywords" content="Thomas Crutchfield, cybersecurity, penetration testing, AWS data center operations, network security, infrastructure, IT support, East Carolina University" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0f1a" />
+  <!-- TODO: replace with your live domain once deployed -->
+  <link rel="canonical" href="https://thomascrutchfield.com/" />
+
+  <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Thomas Crutchfield Jr." />
+  <meta property="og:title" content="Thomas Crutchfield Jr. | Cybersecurity & Data Center Operations" />
+  <meta property="og:description" content="AWS Data Center Operations Technician and cybersecurity professional — penetration testing, network security, and infrastructure reliability." />
+  <meta property="og:url" content="https://thomascrutchfield.com/" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://thomascrutchfield.com/og-image.png" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Thomas Crutchfield Jr. | Cybersecurity & Data Center Operations" />
+  <meta name="twitter:description" content="AWS Data Center Operations Technician and cybersecurity professional — penetration testing, network security, and infrastructure reliability." />
+  <meta name="twitter:image" content="https://thomascrutchfield.com/og-image.png" />
+
+  <!-- Fonts (preconnect for faster load / better Core Web Vitals) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Structured data: Person schema for rich search results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Thomas Clinton Crutchfield Jr.",
+    "jobTitle": "Data Center Operations Technician & Cybersecurity Professional",
+    "url": "https://thomascrutchfield.com/",
+    "worksFor": { "@type": "Organization", "name": "Amazon Web Services" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "East Carolina University" },
+    "knowsAbout": ["Cybersecurity", "Penetration Testing", "Data Center Operations", "Network Security", "Cloud Computing", "Linux", "Python"],
+    "sameAs": [
+      "https://www.linkedin.com/in/thomas-crutchfield-780957192/",
+      "https://github.com/Thomas2074"
+    ]
+  }
+  </script>
+
   <style>
     :root {
       --bg: #0a0f1a;
@@ -26,7 +72,12 @@
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5rem; /* keep anchor targets clear of the fixed nav */
+      -webkit-text-size-adjust: 100%; /* prevent iOS Safari font inflation */
+      text-size-adjust: 100%;
+    }
 
     body {
       background: var(--bg);
@@ -34,6 +85,18 @@
       font-family: var(--font-display);
       line-height: 1.6;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      -webkit-tap-highlight-color: rgba(0, 194, 255, 0.2);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
     }
 
     /* ── NAV ── */
@@ -45,7 +108,10 @@
       align-items: center;
       justify-content: space-between;
       padding: 1rem 2rem;
+      padding-left: max(2rem, env(safe-area-inset-left));
+      padding-right: max(2rem, env(safe-area-inset-right));
       background: rgba(10,15,26,0.85);
+      -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
@@ -103,6 +169,7 @@
         linear-gradient(90deg, var(--border) 1px, transparent 1px);
       background-size: 48px 48px;
       opacity: 0.35;
+      -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 30%, transparent 100%);
       mask-image: radial-gradient(ellipse 80% 80% at 50% 40%, black 30%, transparent 100%);
     }
 
@@ -650,11 +717,43 @@
     footer a { color: var(--accent); text-decoration: none; }
 
     /* ── RESPONSIVE ── */
+
+    /* Tablet */
+    @media (max-width: 900px) {
+      section { padding: 4.5rem 1.75rem; }
+      .nav-links { gap: 1.25rem; }
+      .nav-links a { font-size: 0.72rem; }
+      h2 { margin-bottom: 2.25rem; }
+    }
+
+    /* Mobile */
     @media (max-width: 640px) {
-      nav { padding: 1rem; }
-      .nav-links { display: none; }
-      .timeline-item { grid-template-columns: 90px 1px 1fr; }
-      .exp-date { display: none; }
+      nav { padding: 0.85rem 1.1rem; }
+      /* Collapse the link list but keep the Contact CTA reachable */
+      .nav-links { gap: 0; }
+      .nav-links li:not(.nav-cta-item) { display: none; }
+      .nav-cta { padding: 0.45rem 1rem; }
+
+      section { padding: 4rem 1.25rem; }
+      #home { padding: 5.5rem 1.25rem 3rem; }
+      .hero-sub { font-size: 1rem; }
+      .hero-actions { gap: 0.75rem; }
+      .hero-actions a { flex: 1 1 auto; text-align: center; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+
+      .timeline-item { grid-template-columns: 84px 1px 1fr; gap: 0 1rem; }
+      .timeline-date { font-size: 0.68rem; }
+      .exp-header { gap: 0.5rem; }
+      .exp-date { align-self: flex-start; }
+    }
+
+    /* Small phones */
+    @media (max-width: 400px) {
+      .hero-stats { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; }
+      .timeline-date { text-align: left; margin-bottom: 0.4rem; }
+      .timeline-line { display: none; }
+      .timeline-content { padding-bottom: 2rem; border-left: 1px solid var(--border); padding-left: 1rem; }
     }
 
     /* ── ANIMATIONS ── */
@@ -673,15 +772,15 @@
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="#home" class="nav-logo">TC //</a>
+<nav aria-label="Primary">
+  <a href="#home" class="nav-logo" aria-label="Home">TC //</a>
   <ul class="nav-links">
     <li><a href="#journey">Journey</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#education">Education</a></li>
-    <li><a href="#contact" class="nav-cta">Contact</a></li>
+    <li class="nav-cta-item"><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
@@ -700,7 +799,7 @@
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Get in Touch</a>
       <a href="#experience" class="btn-secondary">View Experience</a>
-      <a href="https://www.linkedin.com/in/thomas-crutchfield-780957192/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+      <a href="https://www.linkedin.com/in/thomas-crutchfield-780957192/" target="_blank" rel="noopener" class="btn-secondary">LinkedIn ↗</a>
     </div>
     <div class="hero-stats">
       <div class="stat"><span class="stat-num">2,400+</span><span class="stat-label">Resolved Tickets at AWS and Across Azure Environments</span></div>
@@ -859,6 +958,47 @@
     <div class="exp-card">
       <div class="exp-header">
         <div>
+          <div class="exp-title">Data Analyst — Office of Innovation & Engagement</div>
+          <div class="exp-company">East Carolina University</div>
+        </div>
+        <div class="exp-date">Jan 2025 – Apr 2025</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Collected, analyzed, and interpreted data supporting university research, engagement, and innovation initiatives.</li>
+        <li>Built data visualizations and reports to communicate findings and insights to stakeholders.</li>
+        <li>Maintained meticulous documentation of data and project progress to ensure accuracy and organization.</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="tag">Data Analysis</span>
+        <span class="tag">Data Visualization</span>
+        <span class="tag">Reporting</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Lab Monitor — College of Engineering & Technology</div>
+          <div class="exp-company">East Carolina University</div>
+        </div>
+        <div class="exp-date">Aug 2024 – May 2025</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Managed and maintained a Cisco networking lab, keeping all switches, routers, and equipment fully operational for student use.</li>
+        <li>Provided hands-on technical support to students on complex network configurations, troubleshooting, VLANs, and routing.</li>
+        <li>Assisted instructors with lab preparation, including setting up network simulations and organizing materials.</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="tag green">Cisco Networking</span>
+        <span class="tag green">VLANs</span>
+        <span class="tag green">Routing</span>
+        <span class="tag">Lab Support</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
           <div class="exp-title">Undergraduate Research Assistant</div>
           <div class="exp-company">East Carolina University</div>
         </div>
@@ -919,6 +1059,28 @@
         <span class="tag green">CyberArk</span>
         <span class="tag green">VMware</span>
         <span class="tag green">Fortinet</span>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Supervisor / Trainer & Bus Operator</div>
+          <div class="exp-company">ECU Transit — Greenville, NC</div>
+        </div>
+        <div class="exp-date">Oct 2019 – May 2025</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Managed daily operations of a 36-bus fleet across 28 fixed routes, plus Demand Response and Pirate Access disability services.</li>
+        <li>Directed and coordinated all phases of operations — maintenance schedules, hazard reporting, and emergency response.</li>
+        <li>Tracked KPIs by documenting late arrivals, no-shows, mechanical failures, and accidents in a Microsoft Access database.</li>
+        <li>Safely operated transit vehicles on assigned routes, operated wheelchair lifts, and assisted passengers with disabilities.</li>
+      </ul>
+      <div class="exp-tags">
+        <span class="tag">Fleet Operations</span>
+        <span class="tag">Team Leadership</span>
+        <span class="tag">Training</span>
+        <span class="tag">Microsoft Access</span>
       </div>
     </div>
 
@@ -1026,34 +1188,46 @@
   <h2>Things I've Built</h2>
   <div class="project-cards">
 
-    <a href="https://github.com/Thomas2074/Network-Analyzer" target="_blank" class="project-card">
+    <a href="https://github.com/Thomas2074/RecipeJumper-Browser-Extension" target="_blank" rel="noopener" class="project-card">
+      <div class="project-lang">JavaScript · Browser Extension</div>
+      <div class="project-name">RecipeJumper</div>
+      <div class="project-desc">A browser extension that skips the filler and jumps you straight to the recipe on any cooking page.</div>
+    </a>
+
+    <a href="https://github.com/Thomas2074/Productivity-Toolkit" target="_blank" rel="noopener" class="project-card">
+      <div class="project-lang">JavaScript · Userscript</div>
+      <div class="project-name">Productivity Toolkit</div>
+      <div class="project-desc">A Tampermonkey userscript bundling handy productivity tools to streamline everyday browsing.</div>
+    </a>
+
+    <a href="https://github.com/Thomas2074/Network-Analyzer" target="_blank" rel="noopener" class="project-card">
       <div class="project-lang">Python</div>
       <div class="project-name">Network Analyzer</div>
       <div class="project-desc">A Python-built network analysis tool for monitoring and inspecting network traffic.</div>
     </a>
 
-    <a href="https://github.com/Thomas2074/Password-Generator" target="_blank" class="project-card">
+    <a href="https://github.com/Thomas2074/Password-Generator" target="_blank" rel="noopener" class="project-card">
       <div class="project-lang">Python</div>
       <div class="project-name">Password Generator</div>
-      <div class="project-desc">Generates strong, random passwords with customizable length using letters, numbers, and symbols.</div>
+      <div class="project-desc">Generates strong, random passwords of customizable length using letters, numbers, and symbols.</div>
     </a>
 
-    <a href="https://github.com/Thomas2074/Authenticator-Program" target="_blank" class="project-card">
+    <a href="https://github.com/Thomas2074/Authenticator-Program" target="_blank" rel="noopener" class="project-card">
       <div class="project-lang">Python</div>
       <div class="project-name">Authenticator Program</div>
       <div class="project-desc">A lightweight authentication application demonstrating secure credential management concepts.</div>
     </a>
 
-    <a href="https://github.com/Thomas2074/Calculator-Website" target="_blank" class="project-card">
+    <a href="https://github.com/Thomas2074/Calculator-Website" target="_blank" rel="noopener" class="project-card">
       <div class="project-lang">JavaScript · HTML · CSS</div>
       <div class="project-name">Calculator Website</div>
       <div class="project-desc">Responsive arithmetic calculator with robust error-handling and cross-device compatibility.</div>
     </a>
 
-    <a href="https://github.com/Thomas2074/Blog-Site" target="_blank" class="project-card">
-      <div class="project-lang">CSS · HTML · JavaScript</div>
-      <div class="project-name">Blog Site</div>
-      <div class="project-desc">A clean, functional blog webpage built from scratch with custom styling and layout.</div>
+    <a href="https://github.com/Thomas2074/HTML-Website" target="_blank" rel="noopener" class="project-card">
+      <div class="project-lang">HTML</div>
+      <div class="project-name">HTML Website</div>
+      <div class="project-desc">My first coding project — a simple website built from scratch to learn the fundamentals of HTML.</div>
     </a>
 
     <div class="project-card" style="border-style: dashed; cursor: default;">
@@ -1109,15 +1283,14 @@
     I'm looking for roles where I can protect critical infrastructure, grow my offensive security skills, and build with teams who care about getting it right.
   </p>
   <div class="contact-links">
-    <a href="mailto:deltaclint@gmail.com" class="btn-primary">Email Me</a>
-    <a href="https://www.linkedin.com/in/thomas-crutchfield-780957192/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
-    <a href="https://github.com/Thomas2074" target="_blank" class="btn-secondary">GitHub ↗</a>
+    <a href="https://www.linkedin.com/in/thomas-crutchfield-780957192/" target="_blank" rel="noopener" class="btn-primary">Connect on LinkedIn ↗</a>
+    <a href="https://github.com/Thomas2074" target="_blank" rel="noopener" class="btn-secondary">GitHub ↗</a>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 Thomas Clinton Crutchfield Jr. &nbsp;·&nbsp; Built with intention. &nbsp;·&nbsp; <a href="mailto:deltaclint@gmail.com">deltaclint@gmail.com</a></p>
+  <p>© 2025 Thomas Clinton Crutchfield Jr. &nbsp;·&nbsp; Built with intention. &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/thomas-crutchfield-780957192/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;·&nbsp; <a href="https://github.com/Thomas2074" target="_blank" rel="noopener">GitHub</a></p>
 </footer>
 
 <script>
